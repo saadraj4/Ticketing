@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import bodyParser from "body-parser";
 import { connectDb } from "./Config/connectDB.js";
 import cors from "cors" 
+import { ContactUs } from './Model/ContactUsModel.js'
 
 const app = express();
 const PORT = 5000;
@@ -53,6 +54,20 @@ app.post('/api/login', async (req, res) => {
     }
   });
 
+
+//   API Route to handle contact uspage
+app.post('/submitForm', (req, res) => {
+    console.log(req.body);
+    ContactUs.create(req.body)
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    res.status(200).json({ message: 'Form submission successful' });
+  });
+  
 
 
 app.listen(PORT, () => {
