@@ -16,12 +16,11 @@ function App() {
 
   return (
     <>
-    <ContactUs />
     
       <Router>
       <Routes>
         <Route path="/" element={<ContactUs />} />
-        <Route path="/homepage" element={<HomePage />} />
+  {/*<Route path="/homepage" element={<HomePage />} />*/}
         {/* ... other routes ... */}
       </Routes>
     </Router>
